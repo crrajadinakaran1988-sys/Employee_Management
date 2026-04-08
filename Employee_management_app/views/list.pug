@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .card
+    h1 Employee List
+
+    table.table(border="2")
+      tr
+        th Name
+        th Designation
+        th EMail
+        th Contact
+        th Department
+        th JoiningDate
+        th Location
+
+      each emp in Employee
+        tr
+          td #{emp.Name}
+          td #{emp.Designation}
+          td #{emp.EMail}
+          td #{emp.Contact}
+          td #{emp.Department}
+          td #{emp.JoiningDate}
+          td #{emp.Location}
+          td 
+            if emp.file
+              span #{emp.file}
+            else
+              span No file
+          td
+            a.delete-btn(href=`/delete/${emp.id}`) Delete |
+            a(href=`/edit/${emp.id}`) Edit 
+
+    br
+    a(href="/") Add New Employee |
+    a(href="/logout") Logout
