@@ -3,7 +3,7 @@ const db = require('../config/db');
 exports.create = async (expense) => {
     const {Name, Designation, EMail, Contact, Department, JoiningDate, Location} = expense;
     
-    await db.query('INSERT INTO Employee (Emp_Name, Emp_email_id, Emp_Cnt_no, Emp_Dept, Emp_DOJ, Emp_Location) VALUES (?, ?)', [Name, Designation, EMail, Contact, Department, JoiningDate, Location]);
+    await db.query('INSERT INTO Employee (Emp_Name, Emp_Designation, Emp_email_id, Emp_Cnt_no, Emp_Dept, Emp_DOJ, Emp_Location) VALUES (?, ?, ?, ?, ?, ?, ?)', [Name, Designation, EMail, Contact, Department, JoiningDate, Location]);
 }
 
 exports.getAll = async () => {
