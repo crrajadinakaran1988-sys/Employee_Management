@@ -8,13 +8,13 @@ exports.showForm = (req, res) => {
 exports.createExpense = async (req, res, next) => {
     try {
 
-        const {title, amount} = req.body
+        const {Name, Designation, EMail, Contact, Department, JoiningDate, Location} = req.body
 
-        if(!title || !amount) {
-            return new Error('Title and Amount are required');
+        if(!Name || !Designation) {
+            return new Error('Name and Designation are required');
         }
 
-        await model.create({title, amount});
+        await model.create({Name, Designation, EMail, Contact, Department, JoiningDate, Location});
 
         res.redirect('/expenses');
 
